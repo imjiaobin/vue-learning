@@ -1,0 +1,17 @@
+#表單輸入元件
+
+    ##輸入框
+    -單行書入框:<input type='text'/>
+    -多行輸入框:<textarea></textarea>
+
+    ##多選框
+    -方框:<input type="checkbox"/>
+    -圓框:<input type="radio"/>
+
+    ##下拉式選單
+    -<select>
+        <option></option>
+     </select>
+
+#綁定響應式狀態
+    -使用v-model = "響應式狀態名稱"

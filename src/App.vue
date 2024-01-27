@@ -42,6 +42,17 @@
         state.value.title = "新的網站標題";
         state.value.className = "title highlight";
     };
+
+    //綁定響應式狀態的表單輸入元件
+    let gender = ref(null);
+        //這邊單選框的初始值設應為null,因為還沒選擇;
+    let fruit = ref([]);
+        //這邊多選框的初始值設定為空串列;
+    let username = ref("");
+
+    let clearUsername = function(){
+        username.value = "";
+    };
 </script>
 <template>
     <nav>基本導覽列</nav>
@@ -161,7 +172,7 @@
     </div>
 <hr>
     <div>
-        <div>事件處理</div>
+        <h2>事件處理</h2>
         <button v-on:click="handler">文字</button><br>
         <!-- v-on:事件名稱 = "要去觸發的函式名稱" -->
         <!-- 點擊這個標籤,就會去執行對應的handler事件 -->
@@ -186,13 +197,35 @@
     </div>
 <hr>
     <div>
-        <div>響應式</div>
+        <h2>響應式</h2>
         <div>{{ content }}</div>
         <button @click="responsive_status">點擊更新資料</button>
 
 
         <div :class = "state.className">{{state.title}}</div>
         <button @click="responsive_handler">點擊</button>
+    </div>
+
+    <div>
+        <h4>單選框範例</h4>
+        男 <input type="radio" value="male" v-model = "gender" />
+        女 <input type="radio" value="female" v-model = "gender" />
+        <div>選擇的性別{{ gender }}</div>
+        <h4>多選框範例</h4>
+        蘋果 <input type="checkbox" value="Apple" v-model="fruit"/>
+        香蕉 <input type="checkbox" value="banana" v-model="fruit"/>
+        <div>選擇的水果{{ fruit }}</div>
+        <h4>下拉式選單</h4>
+        <select v-model="gender">
+            <option value="">請選擇</option>
+            <option value="male">男生</option>
+            <option value="female">女生</option>
+        </select>
+        <div>選擇的性別{{ gender }}</div>
+        <h4>使用者輸入</h4>
+        <div>名字: {{ username }}</div>
+        <input type="text" v-model="username" />
+        <button v-on:click= "clearUsername">清空</button>
     </div>
 </template>
 
