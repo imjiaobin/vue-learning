@@ -30,6 +30,18 @@
     let mouseoverHandler = function(){
         console.log("Mouse over");
     };
+
+    //響應式狀態
+    import {ref} from "vue";
+    let content = ref("網站的內容");
+    let responsive_status = function(){
+        content.value = "新的網站內容";
+    };
+    let state = ref({title:"網站的標題",className:"title"});
+    let responsive_handler = function(){
+        state.value.title = "新的網站標題";
+        state.value.className = "title highlight";
+    };
 </script>
 <template>
     <nav>基本導覽列</nav>
@@ -151,6 +163,7 @@
     <div>
         <div>事件處理</div>
         <button v-on:click="handler">文字</button><br>
+        <!-- v-on:事件名稱 = "要去觸發的函式名稱" -->
         <!-- 點擊這個標籤,就會去執行對應的handler事件 -->
         <button
             @click="clickHandler"
@@ -171,6 +184,16 @@
         >prevent</a>
         <!-- 也可以用來阻擋函式,只要在後方加上 = "函式"就好 -->
     </div>
+<hr>
+    <div>
+        <div>響應式</div>
+        <div>{{ content }}</div>
+        <button @click="responsive_status">點擊更新資料</button>
+
+
+        <div :class = "state.className">{{state.title}}</div>
+        <button @click="responsive_handler">點擊</button>
+    </div>
 </template>
 
 <style scoped>
@@ -178,4 +201,7 @@
     .content{color:rgb(13, 13, 149)}
     .dark{color:grey}
     .light{color:lightgray}
+
+    .title{font-weight:bold;}
+    .highlight{color:red;}
 </style>
