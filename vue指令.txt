@@ -1,0 +1,40 @@
+###npm init vue@latest
+
+###npm install
+-初始化專案,並安裝專案所需要的套件(會在專案資料夾當中多一個node_modules的資料夾,所需要的套件都在裡面)
+
+###npm run dev
+-開發和測試使用的,執行/測試現在的專案,看能否正常運作
+-會跑一個內建的測試用伺服器做這件事
+
+###npm run build
+-專案建置(產生一個dist檔),根據scr和pubpic資料夾的程式碼做打包,在輸出dist的資料夾,在記憶體中直接建置,讓執行過程變得相當迅速
+
+###建立Vue App
+-一個vue app會包含一到多個組件
+-一個基礎的檔案,html
+-一個根組件,App.vue
+-建立一個主程式的檔案,main.js
+-在主程式main.js中建立VueApp:
+   -載入,設定根組件
+   -設定掛載的HTML標籤
+-載入createApp函釋:import {createApp} from "vue";
+-載入,設定根組件:
+    import 根組件名稱 from "組件檔案路徑";
+    const app = createApp{根組件名稱};
+-設定掛載的HTML標籤:
+    app.mount{"css選擇器"};
+
+###組件的概念
+-將網頁的HTML,CSS,JvaScript包裹在一個vue程式檔案中
+    <Script setup>
+        //JavaScript程式碼
+        console.log()
+    </Script>
+    <template>
+        <!-- HTML 樣板結構>
+        <div></div>
+    </template>
+        <style scoped>
+        div{}
+    </style>
