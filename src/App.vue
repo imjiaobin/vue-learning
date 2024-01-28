@@ -3,10 +3,16 @@
     import Eventhandler from "./Eventhandler.vue";
     import ResponsiveAndForm from "./ResponsiveAndForm.vue";
     import TemplateIntroduction from "./TemplateIntroduction.vue";
+    import NavCom from "./NavCom.vue";
+    import MainCom from "./MainCom.vue";
 </script>
 <template>
-    <nav>基本導覽列</nav>
-    <main>基本的內容</main>
+    <NavCom title="這是網站的標題一"></NavCom>
+    <hr>
+    <MainCom backgroundColor = "blue" color="white"> 
+        
+    </MainCom>
+    <hr>
     <TemplateIntroduction></TemplateIntroduction>
     <hr>
     <Flowcontrol></Flowcontrol>
