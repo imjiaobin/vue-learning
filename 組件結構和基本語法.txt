@@ -1,0 +1,9 @@
+#組件的切割
+    -將網頁根據實際的畫面區塊切割成多個子組件,例如nav就有它自己的,main就只有他自己的vue檔,各自檔案裏面就有它們的css和js
+    -透過在最上層的組件App.vue的script區塊中,直接import各個組件就可以使用了,import Nav from "./Nav.vue"
+    -然後繼續在App.vue的template區塊加上對應的區塊名稱Tag即可,<Nav></Nav>
+
+#組件結構的基本語法
+    -載入組件: 在App.vue中的Script區,import 組件名稱 from "組件檔案的路徑";(組件可以自己命名)
+    -使用組件: 在App.vue中的template區,使用組件,<組件名稱></組件名稱>
+    -會自動把css和js畫進來
