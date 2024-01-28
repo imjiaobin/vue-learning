@@ -53,6 +53,9 @@
     let clearUsername = function(){
         username.value = "";
     };
+
+    let interests = ref([]);
+    let color = ref("");
 </script>
 <template>
     <nav>基本導覽列</nav>
@@ -207,21 +210,46 @@
     </div>
 
     <div>
-        <h4>單選框範例</h4>
+        <fieldset>
+            <legend>單選框範例</legend>
         男 <input type="radio" value="male" v-model = "gender" />
         女 <input type="radio" value="female" v-model = "gender" />
         <div>選擇的性別{{ gender }}</div>
-        <h4>多選框範例</h4>
+        <br>
+        紅色 <input type="radio" value="red" v-model="color">
+        綠色 <input type="radio" value="green" v-model="color">
+        <div :class="color">顏色:{{color}}</div>
+        </fieldset>
+        <fieldset>
+        <legend>多選框範例</legend>
         蘋果 <input type="checkbox" value="Apple" v-model="fruit"/>
         香蕉 <input type="checkbox" value="banana" v-model="fruit"/>
         <div>選擇的水果{{ fruit }}</div>
-        <h4>下拉式選單</h4>
+        <br>
+        角色扮演 <input type="checkbox" value = 'rpg' v-model="interests"/>
+        即時策略 <input type="checkbox" value = 'rts' v-model="interests"/>
+        動作遊戲 <input type="checkbox" value = 'action' v-model="interests"/>
+        <!-- <div v-for="interest in interests">喜歡的遊戲類型:{{ interest }}</div> -->
+        <ul>
+            <li v-for="interest in interests">喜歡的遊戲類型:{{interest}}</li>
+        </ul>
+        </fieldset>
+        <fieldset>
+        <legend>下拉式選單</legend>
         <select v-model="gender">
             <option value="">請選擇</option>
             <option value="male">男生</option>
             <option value="female">女生</option>
         </select>
         <div>選擇的性別{{ gender }}</div>
+        <br>
+        <select v-model="color">
+            <option value="">請選擇你要的顏色</option>
+            <option value="red">紅色</option>
+            <option value="green">綠色</option>
+        </select>
+        <div v-bind:class="color">顏色為: {{color}}</div>
+        </fieldset>
         <h4>使用者輸入</h4>
         <div>名字: {{ username }}</div>
         <input type="text" v-model="username" />
@@ -237,4 +265,7 @@
 
     .title{font-weight:bold;}
     .highlight{color:red;}
+
+    .red{color: red;}
+    .green{color: green;}
 </style>
