@@ -1,10 +1,9 @@
 <script setup>
-    import {ref} from "vue";
+    import {onMounted,onUpdated,onUnmounted,ref} from "vue";
     let text = ref("主要內容");
     let change = function(){
         text.value = "新的網站內容";
     };
-    defineProps(["color","backgroundColor"]);
 </script>
 <template>
 <main :style = "{backgroundColor:backgroundColor,color:color}">

@@ -8,13 +8,22 @@
     import defEventhandeler1 from "./defEventhandler1.vue";
     import defEventhandeler2 from "./defEventhandler2.vue";
     import defEventhandeler3 from "./defEventhandler3.vue";
+    import hooks_onUpdate from "./hooks_onUpdate.vue";
     //自訂事件
     import {ref} from "vue";
     let subtitle = ref("這是網站的副標題");
     let updateSubtitle = function(){
         subtitle.value = "這是新的副標題";
     };
-    //自訂事件處理
+    //自訂事件處理結束
+    //hooks_onUpdate
+    let visible = ref(true);
+    let hide = function(){
+        visible.value = false;
+    };
+    let show = function(){
+        visible.value = true;
+    }
 </script>
 <template>
     <NavCom title="這是網站的標題一"></NavCom>
@@ -44,6 +53,11 @@
     title="這是網站標題"
     :subtitle = "subtitle"><!-- 這邊是以"屬性"的方式去動態地抓到subtitle,也就是用v-bind,這邊有冒號的subtitle是動態屬性呼叫,也是來自defEventhandler3的自訂屬性-->
     </defEventhandeler3>
+    <hr>
+    <h2>onUpdate例子</h2>
+    <hooks_onUpdate v-if="visible"></hooks_onUpdate>
+    <button @click="hide">隱藏</button>
+    <button @click="show">顯示</button>
 
 </template>
 

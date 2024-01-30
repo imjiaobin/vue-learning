@@ -1,0 +1,13 @@
+#組件生命週期
+    -組件在望業上運作時的重要時機點
+    -對應三個內建的Hooks函式
+    -掛載onMounted:組件第一次被畫出來,對應的HTML DOM元件也都被創造完成後
+    -更新onUpdated:當組件因為響應式狀態的變化,完成重新繪製後
+    -卸載onUnmounted:當組件從畫面上移除完畢後
+
+#使用生命週期Hooks
+    -載入Hooks,傳入要執行的函式 import [onMounted, onUpdate, onUnmounted] from "vue";
+    -傳入對應的生命週期觸發時,要執行的函式
+    -onMounted(組件掛載時要執行的)
+    -onUpdated(組件更新時要執行的)
+    -onUnmounted(組件卸載時要執行的)
